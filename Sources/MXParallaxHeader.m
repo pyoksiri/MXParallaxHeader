@@ -150,7 +150,7 @@ static void * const kMXParallaxHeaderKVOContext = (void*)&kMXParallaxHeaderKVOCo
 
     [self.view removeFromSuperview];
     [self.contentView addSubview:self.view];
-
+    
     self.view.translatesAutoresizingMaskIntoConstraints = NO;
 
     switch (self.mode) {
@@ -239,6 +239,8 @@ static void * const kMXParallaxHeaderKVOContext = (void*)&kMXParallaxHeaderKVOCo
 
     CGFloat div = self.height - self.minimumHeight;
     self.progress = (self.contentView.frame.size.height - self.minimumHeight) / (div? : self.height);
+    
+    self.contentView.layer.zPosition = 1;
 }
 
 - (void)adjustScrollViewTopInset:(CGFloat)top {
